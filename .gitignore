@@ -218,3 +218,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- SIRE voice evaluation demo -------------------------------------------
+# Customer regression corpus (synthetic, but customer-provided) stays local.
+test_data/
+# Foundry workspace: generated datasets (phrases + audio copies), run outputs, evaluator and
+# scorecard caches (environment-specific IDs).
+agent/.foundry/
+# azd environment state (contains subscription/project identifiers).
+.azure/

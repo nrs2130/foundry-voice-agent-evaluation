@@ -1,0 +1,23 @@
+# Regression gates for scripts/compare_runs.py.
+#
+# A metric fails its gate when, on the cases both runs share, it drops by more than `max_drop`
+# (absolute, 0-1 scale) below the baseline AND the drop is statistically significant: a one-sided
+# exact McNemar test on the flipped cases (pass->fail vs fail->pass) gives p <= alpha.
+# The realtime model is sampled, so two runs of the same configuration differ by a few cases
+# (see the A/A check in the README); drops beyond max_drop that are within that noise are reported
+# as warnings - re-run, or confirm on the larger regression suite.
+alpha: 0.05
+metrics:
+  task_success:       {max_drop: 0.02}
+  intent_accuracy:    {max_drop: 0.02}
+  tool_selection:     {max_drop: 0.03}
+  entity_top1:        {max_drop: 0.02}
+  entity_recall_at_5: {max_drop: 0.02}
+  # Safety: never auto-confirm more wrong people/groups. Any drop counts, and the test is more
+  # sensitive (alpha 0.2) so that a handful of new confident-wrong cases already fails the gate.
+  no_confident_wrong: {max_drop: 0.0, alpha: 0.2}
+  choice_accuracy:    {max_drop: 0.03}
+  stt_word_accuracy:  {max_drop: 0.03}
+  stt_entity_recall:  {max_drop: 0.03}
+latency:
+  p95_ms: {max_increase_pct: 25}

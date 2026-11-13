@@ -1,0 +1,77 @@
+# SIRE intent catalog: the label space used by the voice agent's tools and by the
+# intent_accuracy evaluator. Names match the regression corpus labels exactly.
+# entity: which search tool usually accompanies the intent (user | group | either | none | choice).
+# Examples use placeholders, never names: names copied from test cases leak the test set into the prompt,
+# and the model tends to reuse example names in its own tool calls (seen with agent v3).
+intents:
+  - {name: addtogroup, entity: group, description: "Add yourself or another user to a group, e.g. 'Add me to <group>'."}
+  - {name: announcespeaker, entity: none, description: "Turn announce-through-speaker on or off."}
+  - {name: aptour, entity: none, description: "Begin or end an access point (AP) tour."}
+  - {name: assignlocation, entity: either, description: "Assign a location to a user or group."}
+  - {name: autoanswer, entity: none, description: "Turn auto answer on or off."}
+  - {name: bluetooth, entity: none, description: "Pair, unpair, connect or disconnect a Bluetooth headset."}
+  - {name: broadcast, entity: group, description: "Broadcast or announce a live message to a group, e.g. 'Announce to <group>'."}
+  - {name: call, entity: either, description: "Call, contact, find, get, or reach a person or a member of a group, e.g. 'Call <person>', 'Find a member of Room <number> Nurse Buddy', 'Get me ...'."}
+  - {name: callscreen, entity: either, description: "Accept, block, or hold calls from someone or everyone, e.g. 'Accept all calls except <person>'."}
+  - {name: cancel, entity: none, description: "Cancel or forget the current operation."}
+  - {name: changednd, entity: none, description: "Configure do-not-disturb (DND) mode."}
+  - {name: changegenie, entity: none, description: "Change the Genie assistant."}
+  - {name: changeppemode, entity: none, description: "Change or toggle PPE mode."}
+  - {name: changevolume, entity: none, description: "Set or change the volume level."}
+  - {name: checkbattery, entity: none, description: "Check the battery status."}
+  - {name: choose, entity: choice, description: "Select one option from a list read by the badge (CHOOSE flow only)."}
+  - {name: conference, entity: either, description: "Start a conference call with people or groups."}
+  - {name: connecttosite, entity: none, description: "Connect to another site or facility, e.g. 'Connect to <facility>'."}
+  - {name: deletecodelavender, entity: none, description: "Cancel or delete code lavender reminders."}
+  - {name: deletemessage, entity: none, description: "Delete voice or text messages."}
+  - {name: deletereminder, entity: none, description: "Delete reminders."}
+  - {name: dial, entity: none, description: "Dial a phone number or an extension."}
+  - {name: eastereggs, entity: none, description: "Fun or novelty phrases, e.g. 'happy birthday', 'beam me up'."}
+  - {name: erasegreeting, entity: none, description: "Delete your voicemail greeting."}
+  - {name: erasevoicepin, entity: either, description: "Erase a voice PIN."}
+  - {name: forward, entity: either, description: "Forward calls to a person, group, or number."}
+  - {name: funnygenie, entity: none, description: "Turn the funny Genie personality on or off."}
+  - {name: goodbye, entity: none, description: "End the interaction, e.g. 'goodbye'."}
+  - {name: groupmode, entity: none, description: "Turn group mode on or off."}
+  - {name: help, entity: none, description: "Ask for help or express frustration with the badge."}
+  - {name: invite, entity: either, description: "Invite a person or group to join the current call or conference."}
+  - {name: joinconference, entity: group, description: "Join a group's conference."}
+  - {name: learncommands, entity: none, description: "Learn or relearn commands."}
+  - {name: learnname, entity: none, description: "Learn or relearn an address book name."}
+  - {name: leaveconference, entity: none, description: "Leave or drop out of the conference."}
+  - {name: locate, entity: either, description: "Find where a person or a group member is, e.g. 'Where is Doctor <name>', 'Locate a member of ...'."}
+  - {name: login, entity: user, description: "Log in as a user, e.g. 'Log me in as <name>', 'This is <name>', '<name> here'."}
+  - {name: logout, entity: none, description: "Log out or sign off."}
+  - {name: mindfulness, entity: none, description: "Play a mindfulness session."}
+  - {name: nointent, entity: none, description: "The utterance is not a supported command or cannot be acted on."}
+  - {name: page, entity: either, description: "Send a page to a person, group, or number."}
+  - {name: paging, entity: none, description: "Enable or disable paging."}
+  - {name: playgreeting, entity: either, description: "Play back a greeting."}
+  - {name: playmessage, entity: either, description: "Play messages or missed calls, optionally from someone."}
+  - {name: playtesttone, entity: none, description: "Play or broadcast a test tone."}
+  - {name: playtutorial, entity: none, description: "Play the welcome tutorial."}
+  - {name: recordgreeting, entity: either, description: "Record a greeting."}
+  - {name: recordname, entity: either, description: "Record a name prompt."}
+  - {name: recordvoicepin, entity: none, description: "Record a voice PIN."}
+  - {name: redial, entity: none, description: "Redial the last number."}
+  - {name: removefromgroup, entity: group, description: "Remove yourself or another user from a group."}
+  - {name: sendemail, entity: either, description: "Leave or send an email message to people or groups."}
+  - {name: sendmessage, entity: either, description: "Leave or send a voice or text message to people or groups."}
+  - {name: sendreminder, entity: either, description: "Set or record a reminder for yourself or others."}
+  - {name: startcodelavender, entity: group, description: "Start, record, or schedule a code lavender for a group."}
+  - {name: stopforward, entity: none, description: "Stop forwarding calls."}
+  - {name: testvoicepin, entity: none, description: "Test a voice PIN."}
+  - {name: transfercall, entity: either, description: "Transfer the current call to a person, group, or extension."}
+  - {name: unlearncommands, entity: none, description: "Unlearn commands."}
+  - {name: unlearnname, entity: none, description: "Unlearn a name."}
+  - {name: wakeword, entity: none, description: "Change or unlearn the wake word."}
+  - {name: whatconference, entity: none, description: "Ask which conference you are in."}
+  - {name: whatgroups, entity: none, description: "Ask which groups you are in."}
+  - {name: whattime, entity: none, description: "Ask for the date or time."}
+  - {name: whereami, entity: none, description: "Ask for your current location."}
+  - {name: whoami, entity: none, description: "Ask who is logged in."}
+  - {name: whocalled, entity: none, description: "Ask who called."}
+  - {name: whoisblocked, entity: none, description: "Ask whose calls are blocked."}
+  - {name: whoisinconference, entity: group, description: "Ask who is in a conference, optionally a group's conference."}
+  - {name: whoisingroup, entity: group, description: "Ask who is in or a member of a group."}
+  - {name: yesno, entity: none, description: "Answer a yes/no question (YES_NO flow)."}
